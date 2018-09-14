@@ -35,15 +35,15 @@ import thread
 from kivy.properties import BooleanProperty
 from kivy.base import runTouchApp
 
-Window.size = (1366, 768)
-Window.clearcolor = (10, 1, 1, 1)
-isBlink = False
-isSpaceClicked=False # for correcting to add auto complete word as new word
-steptime = 1
 global skypeobject
 global alert_on
 alert_on = False
 
+Window.size = (1366, 768)
+Window.clearcolor = (10, 1, 1, 1)
+isBlink = False
+isSpaceClicked = False # for correcting to add auto complete word as new word
+steptime = 1
 
 
 class HoverBehavior(object):
@@ -88,9 +88,12 @@ class HoverBehavior(object):
 
     def on_leave(self):
         pass
+
+
 class AutoCompleteButton(Button, HoverBehavior):
     def __init__(self, **kwargs):
         super(AutoCompleteButton, self).__init__(**kwargs)
+
     def on_enter(self, *args):
         self.background_color = (1.0, 0.0, 0.0, 1.0)
 
@@ -101,6 +104,7 @@ class AutoCompleteButton(Button, HoverBehavior):
 class OptionsButtons(Button, HoverBehavior):
     def __init__(self, **kwargs):
         super(OptionsButtons, self).__init__(**kwargs)
+
     def on_enter(self, *args):
         self.background_color = (1.0, 0.0, 0.0, 1.0)
 
@@ -111,9 +115,9 @@ class OptionsButtons(Button, HoverBehavior):
 class AlphabetButtons(Button, HoverBehavior):
     def __init__(self, **kwargs):
         super(AlphabetButtons, self).__init__(**kwargs)
+
     def on_enter(self, *args):
         self.background_color = (1.0, 0.0, 0.0, 1.0)
-
 
     def on_leave(self, *args):
         self.background_color = (88.0, 88.0, 88.0)
@@ -259,6 +263,7 @@ class CameraCv:
         self.fileStream = False
         print("Update")
 
+
 class AlphabetAutoCompleteContainer(BoxLayout):
     def __init__(self, **kwargs):
         super(AlphabetAutoCompleteContainer, self).__init__(**kwargs)
@@ -275,19 +280,16 @@ class OptionsWidget(BoxLayout):
 
 
 class LabelSentence(BoxLayout):
-
     def __init__(self, **kwargs):
         super(LabelSentence, self).__init__(**kwargs)
 
 
 class AlphabetWidget(GridLayout):
-
     def __init__(self, **kwargs):
         super(AlphabetWidget, self).__init__(**kwargs)
 
 
 class RootWidget(BoxLayout):
-
     global alphabet_container
     alphabet_container = AlphabetWidget()
 
@@ -312,7 +314,6 @@ class RootWidget(BoxLayout):
         skypeobject = sk.contacts["gokturktopar"].chat # 1-to-1 conversation
         Clock.schedule_interval(self.update, 1.0 / 25)
         #Clock.schedule_interval(self.checkSkypeIncomingMessages,5)
-
 
     def update(self, dt):
         # if this is a file video stream, then we need to check if
@@ -416,6 +417,7 @@ class RootWidget(BoxLayout):
         # show the frame
         cv2.imshow("Frame", frame)
         self.camera.key = cv2.waitKey(1) & 0xFF
+
     def checkSkypeIncomingMessages(self,dt):
         global skypeobject
         global skypepopup
@@ -458,7 +460,6 @@ class RootWidget(BoxLayout):
                     text_file_write.write("{} ".format(message_id))
                     text_file_write.close()
 
-
     def get_id(self,  instance):
         for id, widget in instance.parent.ids.items():
             if widget.__self__ == instance:
@@ -500,7 +501,6 @@ class RootWidget(BoxLayout):
             Clock.schedule_once(self.say_sentence,1/1000)
         elif button.text == "Mesaj Gönder":
             Clock.schedule_once(self.send_message, 1.0 / 25)
-
 
     def send_message(self,dt):
         label = self.sentence_container.ids["label_sentence_inside"]
@@ -603,16 +603,12 @@ class RootWidget(BoxLayout):
                     if len(predictions) > i:
                         self.autocomplete_container.ids["completeword{}".format(i+1)].text = predictions[i][0]
 
-
-
-
     def clearBackground(self):
         for i in range(len(alphabetButtons)):
             for j in range(len(alphabetButtons[i])):
                 alphabetButtons[i][j].background_color = (88.0, 88.0, 88.0)
         for i in range(len(optionsButtons)):
             optionsButtons[i].background_color = (88.0, 88.0, 88.0)
-
 
 
 class izgaraApp(App):
