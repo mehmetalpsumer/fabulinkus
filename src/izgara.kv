@@ -1,0 +1,215 @@
+<AutoCompleteButton@Button>:
+    font_size:30
+    markup: True
+
+    
+<AlphabetButtons@Button>:
+    font_size:120
+    markup: True
+
+<OptionsButtons@Button>:
+    font_size:60
+    markup: True
+<AlphabetAutoCompleteContainer>
+	orientation:'vertical'
+	size_hint: 1.3,1
+
+<RootWidget>:
+    alphabet_container:alphabetwidget
+    autocomplete_container:autocompleteword
+    sentence_container:label_sentence
+    options_container:optionswidget
+	orientation:'horizontal'
+	LabelSentence:
+        id:label_sentence
+        OptionsWidget:
+            id:optionswidget
+    AlphabetAutoCompleteContainer:
+        AutoCompleteWord:
+            id:autocompleteword
+        AlphabetWidget:
+            id:alphabetwidget
+            
+
+<LabelSentence>:
+	orientation:'vertical'
+	size_hint: 0.5,1
+    label_sentence:label_sentence_inside
+	Label:
+		text:""
+		id:label_sentence_inside
+		size_hint_y: None
+		text_size: self.width, None
+		height: self.texture_size[1]
+		font_size:50
+		canvas.before:
+			Color:
+				rgb: .6, .6, .6
+			Rectangle:
+				pos: self.pos
+				size: self.size
+
+
+
+<OptionsWidget>:
+	orientation:'vertical'
+    #OptionsButtons:
+    #    id:back_right
+    #    Image:
+    #        source:"x.png"
+    #        y: self.parent.y + self.parent.height - 180
+    #        x: self.parent.x+20
+    #        size: 300, 250
+    #        allow_stretch: True
+	OptionsButtons:
+		text:"Harfi Sil"
+        id:deleteletter
+	OptionsButtons:
+		text:"Kelimeyi Sil"
+        id:deleteword
+	OptionsButtons:
+		text:"Cümleyi Oku"
+        id:tellsentence
+	OptionsButtons:
+		text:"Mesaj Gönder"
+        id:sendmessage
+    OptionsButtons:
+		text:"TV İzle"
+        id:watchtv
+
+<AutoCompleteWord>
+
+    height: "100dp"
+    size_hint_y: None
+    cols: 5
+    rows: 1
+    #AlphabetButtons:
+    #    size_hint_x:None
+    #    id:back_btt
+    #    Image:
+    #        source: 'x.png'
+    #        y: self.parent.y + self.parent.height - 160
+    #        x: self.parent.x-50
+    #        size: 200, 250
+    #        allow_stretch: True
+    AutoCompleteButton:
+        text:"Yeni Kelime"
+        id:newword
+    AutoCompleteButton:
+        id:completeword1
+        text: ""
+    AutoCompleteButton:
+        id:completeword2
+        text: ""
+    AutoCompleteButton:
+        id:completeword3
+        text: ""
+    AutoCompleteButton:
+        id:completeword4
+        text: ""
+
+<AlphabetWidget>:
+
+
+    cols: 10
+    rows: 3
+
+
+    AlphabetButtons:
+        text: "a"
+        id:btt_A
+        size_hint_x: None
+
+    AlphabetButtons:
+        text: "b"
+        id:btt_B
+        
+
+    AlphabetButtons:
+        id:btt_C
+        text: "c"
+
+    AlphabetButtons:
+        id:btt_C2
+        text: "ç"
+    AlphabetButtons:
+        id:btt_D
+        text: "d"
+    AlphabetButtons:
+        id:btt_E
+        text: "e"
+    AlphabetButtons:
+        id:btt_F
+        text: "f"
+    AlphabetButtons:
+        id:btt_G
+        text: "g"
+    AlphabetButtons:
+        id:btt_G2
+        text: "ğ"
+    AlphabetButtons:
+        text: ""
+    AlphabetButtons:
+        id:btt_H
+        text: "h"
+        size_hint_x: None
+
+    AlphabetButtons:
+        id:btt_I
+        text: "ı"
+    AlphabetButtons:
+        id:btt_I2
+        text: "i"
+    AlphabetButtons:
+        id:btt_J
+        text: "j"
+    AlphabetButtons:
+        id:btt_K
+        text: "k"
+    AlphabetButtons:
+        id:btt_L
+        text: "l"
+    AlphabetButtons:
+        id:btt_M
+        text: "m"
+    AlphabetButtons:
+        id:btt_N
+        text: "n"
+    AlphabetButtons:
+        id:btt_O
+        text: "o"
+    AlphabetButtons:
+        id:btt_O2
+        text: "ö"
+    AlphabetButtons:
+        id:btt_P
+        text: "p"
+        size_hint_x: None
+
+    AlphabetButtons:
+        id:btt_R
+        text: "r"
+    AlphabetButtons:
+        id:btt_S
+        text: "s"
+    AlphabetButtons:
+        id:btt_S2
+        text: "ş"
+    AlphabetButtons:
+        id:btt_T
+        text: "t"
+    AlphabetButtons:
+        id:btt_U
+        text: "u"
+    AlphabetButtons:
+        id:btt_U2
+        text: "ü"
+    AlphabetButtons:
+        id:btt_V
+        text: "v"
+    AlphabetButtons:
+        id:btt_Y
+        text: "y"
+    AlphabetButtons:
+        id:btt_Z
+        text: "z"
