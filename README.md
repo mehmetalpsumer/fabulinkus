@@ -1,4 +1,4 @@
-# Fabulinkus ![CI status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+# Fabulinkus
 
 Fabulinkus project, aims to help people with specific disabilities, allowing them to speak using their face movements only. It augments the experience with auto word complete and text to speech features. Currently, only Turkish language is supported.
 
